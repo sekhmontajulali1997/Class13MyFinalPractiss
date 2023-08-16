@@ -1,0 +1,50 @@
+.forPreview {
+    color: #fff;
+    background-color: blue;
+    padding: 8px;
+    border-radius: 50%;
+    line-height: 15px;
+    font-size: 15px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.forEdit {
+    color: #fff;
+    background-color: rgb(255, 149, 0);
+    padding: 8px;
+    border-radius: 50%;
+    line-height: 15px;
+    font-size: 15px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.forTrash {
+    color: #ff0707;
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 50%;
+    line-height: 15px;
+    font-size: 15px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.add_marksbtn {
+    color: #fff;
+    background-color: blue;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 149, 0);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.search_marksbtn{
+    color: #fff;
+    background-color: rgb(255, 149, 0);
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid blue;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+}
