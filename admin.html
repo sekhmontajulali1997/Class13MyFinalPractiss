@@ -37,7 +37,7 @@
                 <table class="table table-dark table-striped">
                     <thead>
                       <tr class="text-center">
-                        <th scope="col">#</th>
+                        <th scope="col">SL No</th>
                         <th scope="col">Photo</th>
                         <th scope="col">Name</th>
                         <th scope="col">Roll</th>
@@ -47,26 +47,7 @@
                         <th scope="col">Action</th> 
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr class="text-center align-middle">
-                        <th scope="row">1</th>
-                        <td><img style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;"  src="https://media.licdn.com/dms/image/C5603AQEvIEMDkT6EWg/profile-displayphoto-shrink_800_800/0/1660191606543?e=2147483647&v=beta&t=GQRzmf9PheUwdqY_ehP47tkSVTU6fStB9ky_P58n4qA" alt=""></td>
-                        <td>kaji</td>
-                        <td>909078</td>
-                        <td>9898</td>
-                        <td>0 seconds ago</td>
-                        <td><Button class=" add_marksbtn"> Add Marks</Button></td>
-                        <td>
-                        <i class="fa-regular fa-eye forPreview"></i>
-                        <i class="fa-regular fa-pen-to-square forEdit"></i>
-                        <i  class="fa-solid fa-trash forTrash "></i>
-                       
-                        
-
-
-
-                        </td>
-                      </tr>
+                    <tbody class="studentsListt">
                       
                     </tbody>
                   </table>
@@ -98,12 +79,7 @@
                    
                   </div>
 
-                <div class="row ">
-                    <div class="col my-2">
-                      <input type="text" class="form-control" placeholder="Students Photo Live Link" name="students_photo" >
-                    </div>
-                   
-                  </div>
+              
                 <div class="row ">
                     <div class="col mb-2">
                       <input type="text" class="form-control" placeholder="Students Photo Live Link" name="students_photo" >
@@ -122,6 +98,11 @@
                     <div class="col">
                       <input type="text" class="form-control" placeholder="Student Reg No" name="students_reg_no" aria-label="Student Reg No">
                     </div>
+                  </div>
+                  <div class="row ">
+                    <div class="col">
+                      <input type="hidden" class="form-control" placeholder="students id" name="students_id" aria-label="students id">
+                      </div>
                   </div>
                   <div class="row mt-3  ">
                     <div class="col d-grid">
