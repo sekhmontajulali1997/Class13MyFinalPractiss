@@ -1,7 +1,9 @@
 const students_add_Form = document.querySelector('#students_add_Form');
 const for_auto_close = document.querySelector('.for_auto_close');
+const for_auto_close2 = document.querySelector('.for_auto_close2');
 const validationAlert = document.querySelector('.validationAlert');   
 const studentsListt = document.querySelector('.studentsListt');   
+const students_edit_Form = document.querySelector('#students_edit_Form');   
 
 
 
@@ -31,7 +33,7 @@ const showStudentsList = () =>{
             <td><Button class=" add_marksbtn"> Add Marks</Button></td>
             <td>
             <i class="fa-regular fa-eye forPreview"></i>
-            <i class="fa-regular fa-pen-to-square forEdit"></i>
+            <i class="fa-regular fa-pen-to-square forEdit" data-bs-toggle="modal" data-bs-target="#edit_students" onclick = "foredit('${item.id}')"></i>
             <i  class="fa-solid fa-trash forTrash" onclick = " fotDelete('${item.id}')"></i>
            
             </td>
@@ -61,9 +63,49 @@ const fotDelete = (id) =>{
 
 }
 
+// edit students list
 
 
+const foredit = (id) =>{
 
+    const alldata = getDataLS('students_Data');
+    const data = alldata.find((item) => item.id === id)
+    
+
+
+    students_edit_Form.querySelector('input[name= "students_photo"]').value = data.students_photo;
+    students_edit_Form.querySelector('img#previewpho').setAttribute('src',data.students_photo);
+    students_edit_Form.querySelector('input[name= "students_name"]').value = data.students_name;
+    students_edit_Form.querySelector('input[name= "students_roll"]').value = data.students_roll;
+    students_edit_Form.querySelector('input[name= "students_reg_no"]').value = data.students_reg_no;
+    students_edit_Form.querySelector('input[name= "students_id"]').value = data.id;
+   
+
+}
+//edit students list form submit
+
+students_edit_Form.onsubmit = (e) =>{
+    
+    e.preventDefault();
+
+    const addStudentsData = new FormData(e.target);
+    const Data = Object.fromEntries(addStudentsData);
+   
+    
+    const alldata = getDataLS('students_Data');
+
+    alldata[alldata.findIndex((item) => item.id === Data.students_id)]= {
+        ...alldata[alldata.findIndex((item) => item.id === Data.students_id)],
+        ...Data,
+    }
+
+    setDataLS('students_Data', alldata );
+    showStudentsList();
+   e.target.reset();
+  for_auto_close2.click();
+  
+
+}
 
 
 
