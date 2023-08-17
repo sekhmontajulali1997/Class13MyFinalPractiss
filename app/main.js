@@ -4,7 +4,7 @@ const for_auto_close2 = document.querySelector('.for_auto_close2');
 const validationAlert = document.querySelector('.validationAlert');   
 const studentsListt = document.querySelector('.studentsListt');   
 const students_edit_Form = document.querySelector('#students_edit_Form');   
-
+const add_students_result = document.querySelector('#add_students_result');   
 
 
 // show students list
@@ -30,7 +30,10 @@ const showStudentsList = () =>{
             <td>${item.students_roll}</td>
             <td>${item.students_reg_no}</td>
             <td>${getFacebookPostTime(item.create_at)}</td>
-            <td><Button class=" add_marksbtn"> Add Marks</Button></td>
+            <td>
+             ${item.result == null ? ` <Button class=" add_marksbtn" data-bs-toggle="modal" data-bs-target="#add_students_result" onclick = " add_Result('${item.id}')" > Add Marks</Button> ` :  ` <Button class=" btn btn-warning" data-bs-toggle="modal" data-bs-target="#add_students_result" onclick = " add_Result('${item.id}')" > view Marks </Button> ` }
+            
+            </td>
             <td>
             <i class="fa-regular fa-eye forPreview"></i>
             <i class="fa-regular fa-pen-to-square forEdit" data-bs-toggle="modal" data-bs-target="#edit_students" onclick = "foredit('${item.id}')"></i>
@@ -108,6 +111,36 @@ students_edit_Form.onsubmit = (e) =>{
 }
 
 
+//  add result functions
+
+const add_Result = (id) =>{
+   
+    add_students_result.querySelector('input[name= "students_id"]').value = id;
+
+
+}
+
+// students result add
+
+add_students_result.onsubmit = (e) =>{
+
+    e.preventDefault();
+
+    const addStudentsResult = new FormData(e.target);
+    const Data = Object.fromEntries(addStudentsResult);
+   
+
+    const alldata = getDataLS('students_Data');
+    // console.log( alldata.findIndex((item) => item.id === Data.students_id)); 
+
+    alldata[alldata.findIndex((item)=> item.id === Data.students_id)]= {
+         ...alldata[alldata.findIndex((item)=> item.id === Data.students_id)],
+        result: Data
+    }
+    setDataLS('students_Data', alldata );
+    showStudentsList();
+  
+}
 
 
 students_add_Form.onsubmit = (e) =>{
